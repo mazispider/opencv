@@ -1,0 +1,1 @@
+g++ -Wall -o opncv opncv.cxx `pkg-config --cflags --libs opencv`
