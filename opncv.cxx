@@ -22,8 +22,13 @@ int main( int argc, char** argv )
         cout <<  "Could not open or find the image" << std::endl ;
         return -1;
     }
-	cv::Vec3b pixel = image.at<cv::Vec3b>(atoi(argv[2]), atoi(argv[3]));
-	printf("%d,%d,%d\n",pixel[0],pixel[1],pixel[1]);
+    for(int i=0;i<image.rows;i++){
+		for(int j=0;j<image.cols;j++){
+			cv::Vec3b pixel = image.at<cv::Vec3b>(i, j);
+			printf("%d,%d,%d-",pixel[0],pixel[1],pixel[2]);
+		}
+		printf("\n");
+	}
     namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
     imshow( "Display window", image );                   // Show our image inside it.
 
